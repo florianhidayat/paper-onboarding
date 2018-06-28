@@ -18,8 +18,9 @@ public struct OnboardingItemInfo {
     public let descriptionColor: UIColor
     public let titleFont: UIFont
     public let descriptionFont: UIFont
+    public let videoName: String
     
-    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
+    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont, videoName: String = "") {
         self.informationImage = informationImage
         self.title = title
         self.description = description
@@ -29,6 +30,7 @@ public struct OnboardingItemInfo {
         self.descriptionColor = descriptionColor
         self.titleFont = titleFont
         self.descriptionFont = descriptionFont
+        self.videoName = videoName
     }
 }
 

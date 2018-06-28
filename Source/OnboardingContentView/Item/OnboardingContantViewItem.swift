@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 open class OnboardingContentViewItem: UIView {
 
@@ -16,9 +18,12 @@ open class OnboardingContentViewItem: UIView {
     public var informationImageHeightConstraint: NSLayoutConstraint?
     
     open var imageView: UIImageView?
+    open var movieController: AVPlayerViewController?
+    open var movieView: UIView?
     open var titleLabel: UILabel?
     open var descriptionLabel: UILabel?
-
+    open var index: Int?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -76,6 +81,7 @@ private extension OnboardingContentViewItem {
         let titleLabel = createTitleLabel(self)
         let descriptionLabel = createDescriptionLabel(self)
         let imageView = createImage(self)
+        let movieView = createMovieView(self)
 
         // added constraints
         titleCenterConstraint = (self, titleLabel, imageView) >>>- {
@@ -87,13 +93,16 @@ private extension OnboardingContentViewItem {
         (self, descriptionLabel, titleLabel) >>>- {
             $0.attribute = .top
             $0.secondAttribute = .bottom
-            $0.constant = 10
+//            $0.constant = 10
+            $0.constant = 40
             return
         }
 
         self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.imageView = imageView
+        self.movieView = movieView
+        self.movieController = createMovieController()
     }
 
     func createTitleLabel(_ onView: UIView) -> UILabel {
@@ -159,7 +168,7 @@ private extension OnboardingContentViewItem {
 
     func createImage(_ onView: UIView) -> UIImageView {
         let imageView = Init(UIImageView(frame: CGRect.zero)) {
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleAspectFill
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
@@ -168,7 +177,8 @@ private extension OnboardingContentViewItem {
         // add constratints
         informationImageWidthConstraint = imageView >>>- {
             $0.attribute = NSLayoutAttribute.width
-            $0.constant = 188
+//            $0.constant = 188
+            $0.constant = 130
             return
         }
         
@@ -183,5 +193,44 @@ private extension OnboardingContentViewItem {
         }
 
         return imageView
+    }
+    
+    func createMovieView(_ onView: UIView) -> UIView {
+        let movieView = Init(UIView(frame: CGRect(x: 0, y: 0, width: 114, height: 198))) {
+            $0.backgroundColor = .blue
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.isHidden = true
+        }
+        
+        onView.addSubview(movieView)
+        
+        for (attribute, constant) in [(NSLayoutAttribute.width, 114), (NSLayoutAttribute.height, 198)] {
+            movieView >>>- {
+                $0.attribute = attribute
+                $0.constant  = CGFloat(constant)
+                return
+            }
+        }
+        
+        for (attribute, constant) in [(NSLayoutAttribute.centerX, 0), (NSLayoutAttribute.top, 0)] {
+            (onView, movieView) >>>- {
+                $0.attribute = attribute;
+                $0.constant = CGFloat(constant)
+                return
+            }
+        }
+        
+        return movieView
+    }
+    
+    func createMovieController() -> AVPlayerViewController {
+        let movieController = Init(AVPlayerViewController()) {
+            $0.showsPlaybackControls = false
+            $0.view.frame = CGRect(x: 0, y: 0, width: 114, height: 198)
+        }
+        
+        movieView?.addSubview(movieController.view)
+        
+        return movieController
     }
 }

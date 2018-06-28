@@ -32,7 +32,7 @@ class ViewController: UIViewController {
                            description: "All local stores are categorized for your convenience",
                            pageIcon: Asset.shoppingCart.image,
                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont, videoName: "video_mode_tutorial_iOS"),
         
         ]
     

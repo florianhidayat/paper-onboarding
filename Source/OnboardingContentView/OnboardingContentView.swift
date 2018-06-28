@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol OnboardingContentViewDelegate: class {
 
@@ -99,8 +100,27 @@ extension OnboardingContentView {
             $0.descriptionLabel?.text = info.description
             $0.descriptionLabel?.font = info.descriptionFont
             $0.descriptionLabel?.textColor = info.descriptionColor
+            
+            if index > 0 {
+                $0.movieView?.isHidden = false
+                let urlpath     = Bundle.main.path(forResource: info.videoName, ofType: "mp4")
+                guard urlpath != nil else {
+                    return
+                }
+                
+                let url         = NSURL.fileURL(withPath: urlpath!)
+                weak var player = AVPlayer(url: url)
+                $0.movieController?.player = player
+                $0.movieController?.player?.play()
+                
+                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: $0.movieController?.player?.currentItem, queue: nil)
+                { notification in
+                    player?.seek(to: kCMTimeZero)
+                    player?.play()
+                }
+            }
         }
-
+        
         delegate?.onboardingConfigurationItem(item, index: index)
         return item
     }

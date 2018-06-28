@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D76227D20E4A24F0052BA02 /* video_mode_tutorial_iOS.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6D76227C20E4A24F0052BA02 /* video_mode_tutorial_iOS.mp4 */; };
 		843A19651CD0B49E00F37344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
 		845C48C21CFDB2F7002BE949 /* PaperOnboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845C48C61CFDB2F7002BE949 /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D76227C20E4A24F0052BA02 /* video_mode_tutorial_iOS.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_mode_tutorial_iOS.mp4; sourceTree = "<group>"; };
 		843A19641CD0B49E00F37344 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaperOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaperOnboarding.h; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				84A773A31CCE545200EF4EB0 /* AppDelegate.swift */,
+				6D76227C20E4A24F0052BA02 /* video_mode_tutorial_iOS.mp4 */,
 				84A773A51CCE545200EF4EB0 /* ViewController.swift */,
 				84A773A71CCE545200EF4EB0 /* Main.storyboard */,
 				84A773AA1CCE545200EF4EB0 /* Assets.xcassets */,
@@ -371,6 +374,7 @@
 			files = (
 				84C7E5FC1CCE59B200C9F001 /* Nunito-Regular.ttf in Resources */,
 				84A773AE1CCE545200EF4EB0 /* LaunchScreen.storyboard in Resources */,
+				6D76227D20E4A24F0052BA02 /* video_mode_tutorial_iOS.mp4 in Resources */,
 				84C7E5FA1CCE59B200C9F001 /* Nunito-Light.ttf in Resources */,
 				84C7E5FE1CCE59B200C9F001 /* OpenSans-Regular.ttf in Resources */,
 				84A773AB1CCE545200EF4EB0 /* Assets.xcassets in Resources */,
