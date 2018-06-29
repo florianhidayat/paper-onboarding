@@ -184,12 +184,17 @@ private extension OnboardingContentViewItem {
         
         informationImageHeightConstraint = imageView >>>- {
             $0.attribute = NSLayoutAttribute.height
-            $0.constant = 188
+            //            $0.constant = 188
+            $0.constant = 130
             return
         }
-
-        for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.top] {
-            (onView, imageView) >>>- { $0.attribute = attribute; return }
+        
+        for (attribute, constant) in [(NSLayoutAttribute.centerX, 0), (NSLayoutAttribute.top, 33)] {
+            (onView, imageView) >>>- {
+                $0.attribute = attribute;
+                $0.constant = CGFloat(constant)
+                return
+            }
         }
 
         return imageView
